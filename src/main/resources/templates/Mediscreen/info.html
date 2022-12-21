@@ -10,7 +10,7 @@
 </head>
 <header>
     <p>COUCOU
-        <img src="/Mediscreen/img/logo_Mediscreen.png" class="imageflottante">
+        <img th:src="@{/img/logo_Mediscreen.png}" />
     </p>
 
 </header>
@@ -40,6 +40,7 @@
                 <td><span th:text="${patientInfosFromSprint1.getGender()}"> Gender</span></td>
                 <td><span th:text="${patientInfosFromSprint1.getPhone()}"> Phone</span></td>
                 <td><span th:text="${patientInfosFromSprint1.getAddress()}"> Address</span></td>
+
                 <!-- the Action column will have Edit & Delete buttons -->
 
             </tbody>
@@ -60,12 +61,44 @@
 
             <tr th:each="note : ${patientInfosFromSprint2.getNotes()}">
             <td><span th:text="${note.getCreationDate()}"> Date </span></td>
-            <td><span th:text="${note.getContent()}"> Content </span></td>
+                <td>  <span style="white-space: pre-line" th:text="${note.getContent()}"> Content </span></td>
             </tr>
-            <!-- the Action column will have Edit & Delete buttons -->
+
 
             </tbody>
         </table>
+
+            <div class="container">
+                <form th:action="@{/Mediscreen/info/note/{id}(id=${patientInfosFromSprint1.getId()})}" method="post">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-2" style="margin: 20px; line-height: 3em">
+                                    <div name="content">
+                                        <label>content</label>
+                                    </div>
+                                </div>
+                                <div class="col-4" style="margin-top: 25px">
+                                    <div name="content" style="margin-bottom: 20px">
+                                        <label>
+                                            <input name=content required type=text>
+                                        </label>
+                                    </div>
+                                <div class="col" style="margin-top: 75px">
+                                    <input type="submit" value="Submit"/>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
     </div>
 </div>
 </div>

@@ -1,9 +1,10 @@
 package com.softwareacademy.projet9_front.proxy;
 
 import com.softwareacademy.projet9_front.DTO.HistoryM;
+import com.softwareacademy.projet9_front.DTO.NoteM;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -12,4 +13,11 @@ import java.util.Optional;
 
     @GetMapping("/patientHistory/{id}")
     public Optional<HistoryM> getHistoryById(@PathVariable("id") Long id);
-    }
+
+
+    @PostMapping("/patientHistory/add")
+    public ResponseEntity<Object> addPatientHistory(@RequestBody HistoryM patientHistory);
+
+    @PutMapping("/patientHistory")
+    public ResponseEntity<Object> updateOrAddNote(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestBody NoteM note);
+}

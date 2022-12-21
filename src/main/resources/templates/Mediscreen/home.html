@@ -47,6 +47,69 @@
     </div>
 </div>
 
+<div class="container">
+    <form action="/Mediscreen/home/addpatient" method="POST">
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2" style="margin: 20px; line-height: 3em">
+                        <div name="firstName">
+                            <label>firstName</label>
+                        </div>
+                        <div name="lastName">
+                            <label>lastName</label>
+                        </div>
+                        <div name="birthdate">
+                            <label>birthdate</label>
+                        </div>
+                        <div name="gender">
+                            <label>gender</label>
+                        </div>
+                        <div name="phone">
+                            <label>phone</label>
+                        </div>
+                        <div name="address">
+                            <label>address</label>
+                        </div>
+                    </div>
+                    <div class="col-4" style="margin-top: 25px">
+                        <div name="firstName" style="margin-bottom: 20px">
+                            <input name=firstName required type=text>
+                        </div>
+                        <div name="lastName" style="margin-bottom: 20px">
+                            <input name=lastName required type=text>
+                        </div>
+                        <div name="birthdate" style="margin-bottom: 20px">
+                            <input name=birthdate required type="date">
+                        </div>
+                        <div name="gender" style="margin-bottom: 20px">
+                            <select name=gender>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                        <div name="phone" style="margin-bottom: 20px">
+                            <input name=phone required type=number>
+                        </div>
+                        <div name="address" style="margin-bottom: 20px">
+                            <input name=address required type=text>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-top: 75px">
+                        <input type="submit" value="Submit"/>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </form>
+
+
+</div>
+
 </body>
 
 </html>

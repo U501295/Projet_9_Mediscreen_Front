@@ -19,4 +19,9 @@ public class NoteM {
 
     @NotBlank
     private String content;
+
+    public NoteM(String content){
+        this.creationDate = java.time.LocalDate.now();
+        this.content = content;
+    }
 }
