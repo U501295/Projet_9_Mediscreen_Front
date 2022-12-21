@@ -11,11 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/Mediscreen")
@@ -36,6 +33,14 @@ public class MediscreenController {
         return "/Mediscreen/home";
     }
 
+    @GetMapping("/AddPatient")
+    public String addPatient(Model model) {
+        PatientsM patients = new PatientsM();
+        patients.setPatientsM(sprint1Service.getPatients());
+        model.addAttribute("patients", patients);
+        return "/Mediscreen/addPatient";
+    }
+
     @GetMapping("/info/{id}")
     public String getPaginatedString(Model model,@PathVariable("id") long patientId){
         PatientM patient = sprint1Service.getPatientById(patientId).get();
@@ -46,6 +51,18 @@ public class MediscreenController {
         model.addAttribute("patientInfosFromSprint3",assess);
 
         return "/Mediscreen/info";
+    }
+
+    @GetMapping("/addNote/{id}")
+    public String addNote(Model model,@PathVariable("id") long patientId){
+        PatientM patient = sprint1Service.getPatientById(patientId).get();
+        AssessM assess = sprint3Service.getDiabeteResultById(patientId);
+        HistoryM history = sprint2Service.getHistoryById(patientId).get();
+        model.addAttribute("patientInfosFromSprint1", patient);
+        model.addAttribute("patientInfosFromSprint2", history);
+        model.addAttribute("patientInfosFromSprint3",assess);
+
+        return "/Mediscreen/addNote";
     }
 
     @PostMapping("/home/addpatient")
