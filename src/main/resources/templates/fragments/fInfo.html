@@ -37,6 +37,7 @@
       <td><span th:text="${patientInfosFromSprint1.getGender()}"> Gender</span></td>
       <td><span th:text="${patientInfosFromSprint1.getPhone()}"> Phone</span></td>
       <td><span th:text="${patientInfosFromSprint1.getAddress()}"> Address</span></td>
+      <a th:href="@{/Mediscreen/modify/{id}(id=${patientInfosFromSprint1.getId()})}">Modify</a>
 
       <!-- the Action column will have Edit & Delete buttons -->
 
@@ -59,6 +60,9 @@
         <tr th:each="note : ${patientInfosFromSprint2.getNotes()}">
           <td><span th:text="${note.getCreationDate()}"> Date </span></td>
           <td>  <span style="white-space: pre-line" th:text="${note.getContent()}"> Content </span></td>
+          <td class="text-center" style="width: 15%">
+            <a th:href="@{/Mediscreen/info/updateNote/{id}/{creationDate}(id=${patientInfosFromSprint1.getId()},creationDate=${note.getCreationDate()})}">Modify Note</a>
+          </td>
         </tr>
 
 

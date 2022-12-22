@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -25,8 +26,12 @@ public class Sprint2Service {
         return proxy.addPatientHistory(historyToadd);
     }
 
-    public ResponseEntity<Object> updateOrAddNote(String firstName, String lastName, NoteM noteToAdd){
-        return proxy.updateOrAddNote(firstName,lastName,noteToAdd);
+    public NoteM getNoteByCreationDate(long id, LocalDate creationDate){
+        return proxy.getNoteByCreationDate(id, creationDate);
+    }
+
+    public ResponseEntity<Object> updateOrAddNote(long id, NoteM noteToAdd){
+        return proxy.updateOrAddNote(id,noteToAdd);
     }
 
 }

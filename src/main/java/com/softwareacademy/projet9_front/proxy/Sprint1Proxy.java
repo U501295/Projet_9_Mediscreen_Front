@@ -3,10 +3,7 @@ package com.softwareacademy.projet9_front.proxy;
 import com.softwareacademy.projet9_front.DTO.PatientM;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,4 +19,8 @@ public interface Sprint1Proxy {
 
     @PostMapping("/patient/add")
     public ResponseEntity<Object> addPatient(@RequestBody PatientM patient);
+
+    @PutMapping("/patient")
+    public PatientM updatePatient(@RequestParam("id") long id, @RequestBody PatientM patientUpdated);
+
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +30,11 @@ public class Sprint1Service {
     public ResponseEntity<Object> addPatient(PatientM patientToAdd){
         proxy.addPatient(patientToAdd);
         return ResponseEntity.status(HttpStatus.CREATED).body(patientToAdd);
+    }
+
+    public ResponseEntity<Object> updatePatient(@RequestParam("id") long id, @RequestBody PatientM patientUpdated){
+       proxy.updatePatient(id,patientUpdated);
+        return ResponseEntity.status(HttpStatus.CREATED).body(patientUpdated);
     }
 
 }

@@ -27,4 +27,13 @@ public class PatientM {
     private String gender;
     private String phone;
     private String address;
+
+    public PatientM(String firstName, String lastName, LocalDate birthdate, String gender, String phone, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.gender = gender;
+        this.phone = phone;
+        this.address = address;
+    }
 }
