@@ -16,7 +16,7 @@ public class Sprint3Service {
         return proxy.getDiabeteResultByName(firstName, lastName);
     }
 
-    public AssessM getDiabeteResultById(long id){
+    public AssessM getDiabeteResultById(Long id){
         return proxy.getDiabeteResultById(id);
     }
 

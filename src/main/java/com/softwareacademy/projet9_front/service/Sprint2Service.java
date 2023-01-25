@@ -18,7 +18,7 @@ public class Sprint2Service {
     Sprint2Proxy proxy;
 
 
-    public Optional <HistoryM> getHistoryById(long id){
+    public Optional <HistoryM> getHistoryById(Long id){
         return proxy.getHistoryById(id);
     }
 
@@ -26,11 +26,11 @@ public class Sprint2Service {
         return proxy.addPatientHistory(historyToadd);
     }
 
-    public NoteM getNoteByCreationDate(long id, LocalDate creationDate){
+    public NoteM getNoteByCreationDate(Long id, LocalDate creationDate){
         return proxy.getNoteByCreationDate(id, creationDate);
     }
 
-    public ResponseEntity<Object> updateOrAddNote(long id, NoteM noteToAdd){
+    public ResponseEntity<Object> updateOrAddNote(Long id, NoteM noteToAdd){
         return proxy.updateOrAddNote(id,noteToAdd);
     }
 

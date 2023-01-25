@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class PatientM {
 
-    private long id;
+    private Long id;
     private String firstName;
     private String lastName;
 

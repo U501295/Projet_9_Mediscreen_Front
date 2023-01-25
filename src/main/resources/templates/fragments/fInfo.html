@@ -11,11 +11,52 @@
 
 <body>
 
-<div class="container-fluid p-3 d-flex justify-content-between" th:fragment="fInfo">
+<div style="padding: 1em;" th:fragment="fInfo">
   <div th:replace="fragments/header :: header"></div>
+  <div style="display: flex; padding-right: 10%" class="container">
+    <div style="padding: 1em 10% 1em 1em;text-decoration: underline;text-decoration-thickness: 5px; ">
+      <font size="+2"><b>Patient informations</b></font>
+    </div>
+    <div style="padding-top: 2% ;">
+      <a th:href="@{/Mediscreen/modify/{id}(id=${patientInfosFromSprint1.getId()})}">
+        <input class="favorite styled"
+               type="button"
+               value="Modify patient informations">
+      </a>
+    </div>
+  </div>
+  <div th:switch="${patientInfosFromSprint3.getDiabetesAssessment()}">
+    <div th:case="'None'">
+      <div style="display: flex; padding-right: 10%; border: 1px solid black; background-color: green" class="container">
+        <div>Diabete condition :</div>
+        <span style="padding-left: 20%" th:text="${patientInfosFromSprint3.getDiabetesAssessment()}">Diabete condition : </span>
+      </div>
+    </div>
+    <div th:case="'Borderline'">
+      <div style="display: flex; padding-right: 10%; border: 1px solid black; background-color: orange" class="container">
+        <div>Diabete condition :</div>
+        <span style="padding-left: 20%" th:text="${patientInfosFromSprint3.getDiabetesAssessment()}">Diabete condition : </span>
+      </div>
+    </div>
+    <div th:case="'In Danger'">
+      <div style="display: flex; padding-right: 10%; border: 1px solid black; background-color: red" class="container">
+        <div>Diabete condition :</div>
+        <span style="padding-left: 20%" th:text="${patientInfosFromSprint3.getDiabetesAssessment()}">Diabete condition : </span>
+      </div>
+    </div>
+    <div th:case="'Early onset'">
+      <div style="display: flex; padding-right: 10%; border: 1px solid black; background-color: purple" class="container">
+        <div>Diabete condition :</div>
+        <span style="padding-left: 20%" th:text="${patientInfosFromSprint3.getDiabetesAssessment()}">Diabete condition : </span>
+      </div>
+    </div>
+
+
+  </div>
+
 <div class="container">
 
-  <div class="row"><h2>Patient informations</h2></div>
+
   <div class="row">
     <table class="table table-bordered">
       <thead>
@@ -37,16 +78,15 @@
       <td><span th:text="${patientInfosFromSprint1.getGender()}"> Gender</span></td>
       <td><span th:text="${patientInfosFromSprint1.getPhone()}"> Phone</span></td>
       <td><span th:text="${patientInfosFromSprint1.getAddress()}"> Address</span></td>
-      <a th:href="@{/Mediscreen/modify/{id}(id=${patientInfosFromSprint1.getId()})}">Modify</a>
+
 
       <!-- the Action column will have Edit & Delete buttons -->
 
       </tbody>
     </table>
-    <div>Diabete condition :</div>
-    <td><span th:text="${patientInfosFromSprint3.getDiabetesAssessment()}">Diabete condition : </span></td>
-
-    <div class="row"><h2>Notes</h2></div>
+    <div style="padding: 1em 10% 1em 2%;text-decoration: underline;text-decoration-thickness: 5px; " class="row">
+      <font size="+2"><b>Notes</b></font>
+    </div>
     <div class="row">
       <table class="table table-bordered">
         <thead>

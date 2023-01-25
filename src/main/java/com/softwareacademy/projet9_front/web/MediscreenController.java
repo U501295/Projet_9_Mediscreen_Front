@@ -47,7 +47,7 @@ public class MediscreenController {
     }
 
     @GetMapping("/info/{id}")
-    public String getPaginatedString(Model model,@PathVariable("id") long patientId){
+    public String getPaginatedString(Model model,@PathVariable("id") Long patientId){
         PatientM patient = sprint1Service.getPatientById(patientId).get();
         AssessM assess = sprint3Service.getDiabeteResultById(patientId);
         HistoryM history = sprint2Service.getHistoryById(patientId).get();
@@ -59,7 +59,7 @@ public class MediscreenController {
     }
 
     @GetMapping("/addNote/{id}")
-    public String addNote(Model model,@PathVariable("id") long patientId){
+    public String addNote(Model model,@PathVariable("id") Long patientId){
         PatientM patient = sprint1Service.getPatientById(patientId).get();
         AssessM assess = sprint3Service.getDiabeteResultById(patientId);
         HistoryM history = sprint2Service.getHistoryById(patientId).get();
@@ -71,7 +71,7 @@ public class MediscreenController {
     }
 
     @GetMapping("/modify/{id}")
-    public String modifyPage(Model model,@PathVariable("id") long patientId){
+    public String modifyPage(Model model,@PathVariable("id") Long patientId){
         PatientM patient = sprint1Service.getPatientById(patientId).get();
         AssessM assess = sprint3Service.getDiabeteResultById(patientId);
         HistoryM history = sprint2Service.getHistoryById(patientId).get();
@@ -83,7 +83,7 @@ public class MediscreenController {
     }
 
     @PostMapping("/modify/{id}")
-    public String modifyPatientInfos(@PathVariable("id") long patientId, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("birthdate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate birthdate, @RequestParam("gender") String gender, @RequestParam("phone") String phone, @RequestParam("address") String address){
+    public String modifyPatientInfos(@PathVariable("id") Long patientId, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("birthdate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate birthdate, @RequestParam("gender") String gender, @RequestParam("phone") String phone, @RequestParam("address") String address){
         PatientM patient = sprint1Service.getPatientById(patientId).get();
         AssessM assess = sprint3Service.getDiabeteResultById(patientId);
         HistoryM history = sprint2Service.getHistoryById(patientId).get();
@@ -115,7 +115,7 @@ public class MediscreenController {
     }
 
     @PostMapping("/info/note/{id}")
-    public String createNote(@PathVariable("id") long patientId,@RequestParam("content") String content,Model model) {
+    public String createNote(@PathVariable("id") Long patientId,@RequestParam("content") String content,Model model) {
         PatientM patient = sprint1Service.getPatientById(patientId).get();
         AssessM assess = sprint3Service.getDiabeteResultById(patientId);
         HistoryM history = sprint2Service.getHistoryById(patientId).get();
@@ -130,7 +130,7 @@ public class MediscreenController {
     }
 
     @GetMapping("/info/updateNote/{id}/{creationDate}")
-    public String updateNotePage(@PathVariable("id") long patientId,Model model, @PathVariable("creationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate creationDate) {
+    public String updateNotePage(@PathVariable("id") Long patientId,Model model, @PathVariable("creationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate creationDate) {
         PatientM patient = sprint1Service.getPatientById(patientId).get();
         AssessM assess = sprint3Service.getDiabeteResultById(patientId);
         HistoryM history = sprint2Service.getHistoryById(patientId).get();
@@ -143,7 +143,7 @@ public class MediscreenController {
 
     }
     @PostMapping("/info/updateNote/{id}/{creationDate}")
-    public String updateNote(@PathVariable("id") long patientId,@PathVariable("creationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate creationDate,@RequestParam("content") String content,Model model) {
+    public String updateNote(@PathVariable("id") Long patientId,@PathVariable("creationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate creationDate,@RequestParam("content") String content,Model model) {
         PatientM patient = sprint1Service.getPatientById(patientId).get();
         AssessM assess = sprint3Service.getDiabeteResultById(patientId);
         HistoryM history = sprint2Service.getHistoryById(patientId).get();

@@ -23,7 +23,7 @@ public class Sprint1Service {
        return proxy.getPatients();
    }
 
-    public Optional <PatientM> getPatientById(long id){
+    public Optional <PatientM> getPatientById(Long id){
         return proxy.getPatientById(id);
     }
 
@@ -32,7 +32,7 @@ public class Sprint1Service {
         return ResponseEntity.status(HttpStatus.CREATED).body(patientToAdd);
     }
 
-    public ResponseEntity<Object> updatePatient(@RequestParam("id") long id, @RequestBody PatientM patientUpdated){
+    public ResponseEntity<Object> updatePatient(@RequestParam("id") Long id, @RequestBody PatientM patientUpdated){
        proxy.updatePatient(id,patientUpdated);
         return ResponseEntity.status(HttpStatus.CREATED).body(patientUpdated);
     }

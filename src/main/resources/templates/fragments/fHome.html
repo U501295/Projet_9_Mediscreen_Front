@@ -11,37 +11,39 @@
 
 <body>
 
-<div class="container-fluid p-3 d-flex justify-content-between" th:fragment="fHome">
+<div style="padding: 1em;" th:fragment="fHome">
     <div th:replace="fragments/header :: header"></div>
-<div class="container">
+        <div class="container">
 
-    <div class="row"><h2>Patients</h2></div>
-    <div class="row">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>BirthDate</th>
-            </tr>
-            </thead>
-            <tbody>
+            <div class="row"><div style="padding: 1em 10% 1em 1em;text-decoration: underline;text-decoration-thickness: 5px; ">
+                <font size="+2"><b>Patients</b></font>
+            </div></div>
+            <div class="row">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>BirthDate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-            <tr th:each="patient : ${patients.getPatientsM()}">
-                <td><span th:text="${patient.getId()}"> Id </span></td>
-                <td><span th:text="${patient.getFirstName()}"> FirstName </span></td>
-                <td><span th:text="${patient.getLastName()}"> Lastname </span></td>
-                <td><span th:text="${patient.getBirthdate()}"> Birthdate </span></td>
-                <!-- the Action column will have Edit & Delete buttons -->
-                <td class="text-center" style="width: 15%">
-                    <a th:href="@{/Mediscreen/info/{id}(id=${patient.getId()})}">Infos</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+                    <tr th:each="patient : ${patients.getPatientsM()}">
+                        <td><span th:text="${patient.getId()}"> Id </span></td>
+                        <td><span th:text="${patient.getFirstName()}"> FirstName </span></td>
+                        <td><span th:text="${patient.getLastName()}"> Lastname </span></td>
+                        <td><span th:text="${patient.getBirthdate()}"> Birthdate </span></td>
+                        <!-- the Action column will have Edit & Delete buttons -->
+                        <td class="text-center" style="width: 15%">
+                            <a th:href="@{/Mediscreen/info/{id}(id=${patient.getId()})}">Infos</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 
 

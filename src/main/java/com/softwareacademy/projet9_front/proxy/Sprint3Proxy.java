@@ -13,6 +13,6 @@ public interface Sprint3Proxy {
     AssessM getDiabeteResultByName(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName);
 
     @GetMapping("/assess/{id}")
-    AssessM getDiabeteResultById(@PathVariable long id);
+    AssessM getDiabeteResultById(@PathVariable Long id);
 
 }

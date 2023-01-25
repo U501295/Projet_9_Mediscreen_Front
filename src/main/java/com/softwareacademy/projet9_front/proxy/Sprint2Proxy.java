@@ -23,5 +23,5 @@ import java.util.Optional;
     public ResponseEntity<Object> addPatientHistory(@RequestBody HistoryM patientHistory);
 
     @PutMapping("/patientHistory")
-    public ResponseEntity<Object> updateOrAddNote(@RequestParam("id") long id, @RequestBody NoteM note);
+    public ResponseEntity<Object> updateOrAddNote(@RequestParam("id") Long id, @RequestBody NoteM note);
 }

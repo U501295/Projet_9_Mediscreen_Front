@@ -21,6 +21,6 @@ public interface Sprint1Proxy {
     public ResponseEntity<Object> addPatient(@RequestBody PatientM patient);
 
     @PutMapping("/patient")
-    public PatientM updatePatient(@RequestParam("id") long id, @RequestBody PatientM patientUpdated);
+    public PatientM updatePatient(@RequestParam("id") Long id, @RequestBody PatientM patientUpdated);
 
 }
