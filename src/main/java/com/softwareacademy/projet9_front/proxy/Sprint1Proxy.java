@@ -1,6 +1,7 @@
 package com.softwareacademy.projet9_front.proxy;
 
 import com.softwareacademy.projet9_front.DTO.PatientM;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@FeignClient(name = "mediscreen-sprint-1", url = "localhost:8081")
+@FeignClient(name = "mediscreen-sprint-1", url = "${clients.patientapiclienturl}")
 public interface Sprint1Proxy {
 
     @GetMapping("/patients")

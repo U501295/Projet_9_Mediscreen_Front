@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.Optional;
 
-@FeignClient(name = "mediscreen-sprint-2", url = "localhost:8082")
+@FeignClient(name = "mediscreen-sprint-2", url = "${clients.patientnoteapiclienturl}")
     public interface Sprint2Proxy {
 
     @GetMapping("/patientHistory/{id}")

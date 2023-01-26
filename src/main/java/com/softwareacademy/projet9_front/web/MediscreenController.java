@@ -27,7 +27,7 @@ public class MediscreenController {
 
     @GetMapping("/welcome")
     public String getWelcomePage() {
-        return "/Mediscreen/welcome";
+        return "Mediscreen/welcome";
     }
 
     @GetMapping("/home")
@@ -35,7 +35,7 @@ public class MediscreenController {
         PatientsM patients = new PatientsM();
         patients.setPatientsM(sprint1Service.getPatients());
         model.addAttribute("patients", patients);
-        return "/Mediscreen/home";
+        return "Mediscreen/home";
     }
 
     @GetMapping("/AddPatient")
@@ -43,7 +43,7 @@ public class MediscreenController {
         PatientsM patients = new PatientsM();
         patients.setPatientsM(sprint1Service.getPatients());
         model.addAttribute("patients", patients);
-        return "/Mediscreen/addPatient";
+        return "Mediscreen/addPatient";
     }
 
     @GetMapping("/info/{id}")
@@ -54,8 +54,7 @@ public class MediscreenController {
         model.addAttribute("patientInfosFromSprint1", patient);
         model.addAttribute("patientInfosFromSprint2", history);
         model.addAttribute("patientInfosFromSprint3",assess);
-
-        return "/Mediscreen/info";
+        return "Mediscreen/info";
     }
 
     @GetMapping("/addNote/{id}")
@@ -67,7 +66,7 @@ public class MediscreenController {
         model.addAttribute("patientInfosFromSprint2", history);
         model.addAttribute("patientInfosFromSprint3",assess);
 
-        return "/Mediscreen/addNote";
+        return "Mediscreen/addNote";
     }
 
     @GetMapping("/modify/{id}")
@@ -79,7 +78,7 @@ public class MediscreenController {
         model.addAttribute("patientInfosFromSprint2", history);
         model.addAttribute("patientInfosFromSprint3",assess);
 
-        return "/Mediscreen/modify";
+        return "Mediscreen/modify";
     }
 
     @PostMapping("/modify/{id}")
@@ -89,7 +88,7 @@ public class MediscreenController {
         HistoryM history = sprint2Service.getHistoryById(patientId).get();
         PatientM patientUpdated = new PatientM(firstName,lastName,birthdate,gender,phone,address);
         sprint1Service.updatePatient(patient.getId(),patientUpdated);
-        return "redirect:/Mediscreen/info/{id}";
+        return "redirect:Mediscreen/info/{id}";
     }
 
     @PostMapping("/home/addpatient")
@@ -110,7 +109,7 @@ public class MediscreenController {
         sprint1Service.addPatient(newPatient);
         newPatient.setId(sprint1Service.getPatients().get(sprint1Service.getPatients().size()-1).getId());
         sprint2Service.addPatientHistory(new HistoryM(newPatient.getId(), newPatient.getFirstName(), newPatient.getLastName(), emptyNoteList));
-        return "redirect:/Mediscreen/home";
+        return "redirect:Mediscreen/home";
 
     }
 
@@ -125,7 +124,7 @@ public class MediscreenController {
         model.addAttribute("newLineChar", '\n');
         NoteM noteToBePublished = new NoteM(content);
         sprint2Service.updateOrAddNote(patient.getId(), noteToBePublished);
-        return "redirect:/Mediscreen/info/{id}";
+        return "redirect:Mediscreen/info/{id}";
 
     }
 
@@ -139,7 +138,7 @@ public class MediscreenController {
         model.addAttribute("patientInfosFromSprint2", history);
         model.addAttribute("patientInfosFromSprint3",assess);
         model.addAttribute("note",noteDate);
-        return "/Mediscreen/updateNote";
+        return "Mediscreen/updateNote";
 
     }
     @PostMapping("/info/updateNote/{id}/{creationDate}")
@@ -152,7 +151,7 @@ public class MediscreenController {
         model.addAttribute("patientInfosFromSprint3",assess);
         NoteM noteToBePublished = new NoteM(creationDate,content);
         sprint2Service.updateOrAddNote(patient.getId(), noteToBePublished);
-        return "redirect:/Mediscreen/info/{id}";
+        return "redirect:Mediscreen/info/{id}";
 
     }
 
